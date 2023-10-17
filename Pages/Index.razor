@@ -1,0 +1,68 @@
+﻿@page "/Index"
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mi Página</title>
+</head>
+<body>
+    <div>
+    <h1>Bienvenido</h1>
+    <p>¡Mira este video!</p>
+    <video width="640" height="360" controls>
+        <source src="./Archivo/videotarea.mp4" type="video/mp4">
+        Tu navegador no admite la reproducción de videos.
+    </video>
+    </div>
+    <div>
+    <audio class="mt-4" controls>
+        <source src="./Archivo/audiotarea.unknown" type="audio/mpeg">
+        Tu navegador no admite la reproducción de audio.
+    </audio>
+    </div>
+    <style>
+        h1 {
+            font-family: Arial;
+            color: #333;
+        }
+        p {
+            font-family: Arial, sans-serif;
+            color: #666;
+        }
+        video {
+            max-width: 30%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        audio {
+            width: 100%;
+            max-width: 300px; /* Limita el ancho máximo del reproductor de audio */
+        }
+
+            /* Estilos para los controles del reproductor de audio */
+            audio::-webkit-media-controls {
+                background-color: #333;
+                color: white;
+            }
+
+            audio::-webkit-media-controls-play-button,
+            audio::-webkit-media-controls-pause-button {
+                color: white;
+            }
+
+            /* Estilo personalizado para los controles de volumen */
+            audio::-webkit-media-controls-volume-slider {
+                background-color: transparent;
+                width: 80px;
+            }
+
+                audio::-webkit-media-controls-volume-slider::-webkit-slider-thumb {
+                    background-color: #333;
+                    width: 12px;
+                    height: 12px;
+                }
+
+    </style>
+</body>
+</html>

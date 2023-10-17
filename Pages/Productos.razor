@@ -1,0 +1,52 @@
+﻿@page "/Productos"
+@using EjercicioMauiAppBlazor.Models;   
+@using EjercicioMauiAppBlazor.Services;
+
+@inject IProductoService service;
+<style>
+    /* Estilo para el encabezado de la página */
+    h3 {
+        color: #007BFF; 
+    }
+    /* Estilo para el fondo de la página */
+    body {
+        background-color: #F8F9FA; 
+    }
+
+    /* Estilo para los elementos de producto */
+    .product {
+        background-color: #FFFFFF; 
+        border: 1px solid #DDDDDD; 
+        margin: 10px;
+        padding: 10px;
+        box-shadow: 2px 2px 5px #888888; 
+    }
+</style>
+<h3>Productos</h3>
+@if (_productos == null)
+{
+    <p>
+        <em>
+            Cargando...
+        </em>
+    </p>
+}
+else
+{
+    @foreach (var product in _productos)
+    {
+        <div>
+           <img src="@product.images.FirstOrDefault()">
+          <p> Nombre: @product.title </p>
+            <p> Descripcion: @product.description</p>
+          <p> Precio: @product.price</p>
+         </div>
+    }
+}
+@code {
+    private List<Producto> _productos;
+    protected override async Task OnInitializedAsync()
+    {
+        _productos = await service.Get();
+    }
+}
